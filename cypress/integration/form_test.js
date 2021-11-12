@@ -12,6 +12,7 @@ describe('Quotes App', () => {
     const lollipopsInput =() =>cy.get('input[name=lollipops]');
     const submitBtn = () => cy.get('button[id="submitBtn"]');
     const specialInput = () =>cy.get('input[name=special]');
+    const sizeInput = () => cy.get('select[name=size]');
     //end helpers
 
 
@@ -36,6 +37,7 @@ describe('Quotes App', () => {
         lollipopsInput().should('exist');
         submitBtn().should('exist');
         specialInput().should('exist')
+        sizeInput().should('exist')
 
         cy.contains('Build your own pizza').should('exist'); // case sensitive
         cy.contains(/bUild YouR own PiZzA/i).should('exist'); // NOT case sensitive
@@ -57,21 +59,33 @@ describe('Quotes App', () => {
                     .type('abc')
                     .should('have.value', 'abc')
 
-                    anchoviesInput()
+                anchoviesInput()
                         .click()
                         .should('have.value', 'on')
 
-                        beefjerkyInput()
+                beefjerkyInput()
                         .click()
                         .should('have.value', 'on')
 
-                        goatbloodInput()
+                goatbloodInput()
                         .click()
                         .should('have.value', 'on')
 
-                        lollipopsInput()
+                lollipopsInput()
                         .click()
                         .should('have.value', 'on')
+
+
+                sizeInput().select('Small')
+                    .then(option => {   
+                        cy.wrap(option).contains('Small');
+                        option[0].click();
+                        sizeInput().should('have.value', 'Small')
+                            });
+
+            
+                submitBtn()
+                    .should('not.be.disabled')
 
             })
 
@@ -80,3 +94,5 @@ describe('Quotes App', () => {
 
 
 })
+
+
