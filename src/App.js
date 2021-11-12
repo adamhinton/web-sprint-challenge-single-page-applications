@@ -1,11 +1,45 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import Pizzaform from './pizza-form'
+import axios from 'axios'
+import { Link, Route, Switch } from 'react-router-dom';
+import Home from "./Home";
 
-const App = () => {
+const initialFormValues = 
+  {
+    name: '',
+    size: '',
+    topping1: false,
+    topping2: false,
+    special: '',
+}
+
+export default function App(){
+  const [orders, setOrders] = useState({})
+
+  const [formValues, setFormValues] = useState(initialFormValues);
+
+  const [formErrors, setFormErrors] = useState("");
+  
+  const updateForm = (inputName, inputValue) => {
+    setFormValues({ ...formValues, [inputName]: inputValue });
+  }
+
+ 
+
   return (
-    <>
-      <h1>Lambda Eats</h1>
-      <p>You can remove this code and create your own header</p>
-    </>
+    <Switch>
+    <Route path="/pizza">
+      <Pizzaform
+       values={formValues}
+       update={updateForm}
+      //  submit={submitForm}
+       />
+    </Route>
+
+    <Route exact path="/">
+      <Home
+       />
+    </Route>
+  </Switch>
   );
 };
-export default App;
