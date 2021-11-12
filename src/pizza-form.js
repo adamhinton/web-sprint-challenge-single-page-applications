@@ -15,7 +15,7 @@ export default function Pizzaform(props){
     submit();
   }
 
-  
+
    return( 
    <div className='container'>
         <h1>Lambda Eats</h1>
@@ -37,6 +37,17 @@ export default function Pizzaform(props){
               <option value="Alumni">Alumni</option>
             </select>
           </label>
+
+          <label>Name
+          <input
+            id= 'name-input'
+            type="text"
+            name="name"
+            value={values.name}
+            onChange={onChange}
+            maxLength="30"
+          />
+        </label>
   
           </form>
        </div>
