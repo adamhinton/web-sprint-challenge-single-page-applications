@@ -78,6 +78,19 @@ export default function Pizzaform(props){
           />
         </label>
 
+
+      <h3>Special Instructions</h3>
+      <label>Name
+          <input
+          id= 'special-text'
+            type="text"
+            name="name"
+            value={values.specialinstructions}
+            onChange={onChange}
+            maxLength="50"
+          />
+        </label>
+
           <label>Name
           <input
             id= 'name-input'
