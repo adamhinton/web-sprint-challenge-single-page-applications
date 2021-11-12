@@ -30,17 +30,16 @@ export default function Pizzaform(props){
           
           <label>Choice of Sauce
             {/* 🔥 STEP 5 - Make dropdown for role. */}
-            <select value={values.sauce} name="role" onChange={onChange}>
-              <option value="">-- Select a Role --</option>
-              <option value="Student">Student</option>
-              <option value="Instructor">Instructor</option>
-              <option value="Alumni">Alumni</option>
+            <select value={values.sauce} name="sauce" onChange={onChange}>
+              <option value="">-- Select a Sauce --</option>
+              <option value="Pesto">Pesto</option>
+              <option value="Ranch">Ranch</option>
+              <option value="Tomato">Tomato</option>
             </select>
           </label>
 
 
           <label>Size
-         \
           <select value={values.size} name="size" onChange={onChange} id='size-dropdown'>
             <option value="">-- Select a Role --</option>
             <option value="Small">Small</option>
@@ -48,6 +47,8 @@ export default function Pizzaform(props){
             <option value="Large">Large</option>
           </select>
         </label>
+
+
 
           <label>Name
           <input
