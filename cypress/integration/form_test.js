@@ -10,7 +10,7 @@ describe('Quotes App', () => {
     const beefjerkyInput =() =>cy.get('input[name=beefjerky]');
     const goatbloodInput =() =>cy.get('input[name=goatblood]');
     const lollipopsInput =() =>cy.get('input[name=lollipops]');
-    const submitBtn = () => cy.get('button[id="submitBtn"]');
+    const orderBtn = () => cy.get('button[id="order-button"]');
     const specialInput = () =>cy.get('input[name=special]');
     const sizeInput = () => cy.get('select[name=size]');
     //end helpers
@@ -35,7 +35,7 @@ describe('Quotes App', () => {
         beefjerkyInput().should('exist');
         goatbloodInput().should('exist');
         lollipopsInput().should('exist');
-        submitBtn().should('exist');
+        orderBtn().should('exist');
         specialInput().should('exist')
         sizeInput().should('exist')
 
@@ -84,7 +84,7 @@ describe('Quotes App', () => {
                             });
 
             
-                submitBtn()
+                orderBtn()
                     .should('not.be.disabled')
 
             })

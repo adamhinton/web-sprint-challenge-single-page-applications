@@ -61,7 +61,7 @@ export default function App(){
   })
   .catch(err => console.error(err))
   }
-  
+
   return (
     <Switch>
     <Route path="/pizza">

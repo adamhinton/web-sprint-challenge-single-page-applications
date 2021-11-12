@@ -102,12 +102,12 @@ export default function Pizzaform(props){
         </label>
 
         <div className='errors'>
-          <div>{errors.name}</div>
+          <div>{errors}</div>
         </div>
         
   
         <div className='submit'>
-          <button id= 'submitBtn' disabled={!values.name ||!values.size}>submit</button>
+          <button id= 'order-button' disabled={!values.name ||!values.size}>Add to Order</button>
         </div>
         
           </form>
