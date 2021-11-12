@@ -38,6 +38,17 @@ export default function Pizzaform(props){
             </select>
           </label>
 
+
+          <label>Size
+         \
+          <select value={values.size} name="size" onChange={onChange} id='size-dropdown'>
+            <option value="">-- Select a Role --</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+          </select>
+        </label>
+
           <label>Name
           <input
             id= 'name-input'
