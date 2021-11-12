@@ -28,16 +28,7 @@ export default function Pizzaform(props){
             <p>Required</p>
           </div>
           
-          <label>Choice of Sauce
-            {/* 🔥 STEP 5 - Make dropdown for role. */}
-            <select value={values.sauce} name="sauce" onChange={onChange}>
-              <option value="">-- Select a Sauce --</option>
-              <option value="Pesto">Pesto</option>
-              <option value="Ranch">Ranch</option>
-              <option value="Tomato">Tomato</option>
-            </select>
-          </label>
-
+       
 
           <label>Size
           <select value={values.size} name="size" onChange={onChange} id='size-dropdown'>
@@ -49,6 +40,43 @@ export default function Pizzaform(props){
         </label>
 
 
+        <h3>Toppings (Select 2)</h3>
+        <label>Anchovies
+          <input
+            type='checkbox'
+            name='anchovies'
+            onChange={onChange}
+            checked={values.anchovies}
+          />
+        </label>
+
+        <label>Beef Jerky
+          <input
+            type='checkbox'
+            name='beefjerky'
+            onChange={onChange}
+            checked={values.anchovies}
+          />
+        </label>
+
+        
+        <label>Goat Blood
+          <input
+            type='checkbox'
+            name='goatblood'
+            onChange={onChange}
+            checked={values.anchovies}
+          />
+        </label>
+
+        <label>Lollipops
+          <input
+            type='checkbox'
+            name='lollipops'
+            onChange={onChange}
+            checked={values.anchovies}
+          />
+        </label>
 
           <label>Name
           <input
