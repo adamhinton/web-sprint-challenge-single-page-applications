@@ -15,8 +15,16 @@ const initialFormValues =
     special: '',
 }
 
+const initialFormErrors = {
+name: ''
+}
+
+const initialDisabled = true
+
 export default function App(){
-  const [orders, setOrders] = useState({})
+  // const [disabled, setDisabled] = useState(initialDisabled)
+
+  const [orders, setOrders] = useState([])
 
   const [formValues, setFormValues] = useState(initialFormValues);
 
@@ -27,14 +35,42 @@ export default function App(){
   }
 
  
+  const submitForm = () => {
+  const newOrder ={
+    name: formValues.name.trim(),
+    size: formValues.size,
+    anchovies: formValues.anchovies,
+    beefjerky : formValues.beefjerky,
+    goatblood: formValues.goatblood,
+    lollipops: formValues.lollipops,
+    special: formValues.special.trim()
+  }
 
+  if(newOrder.name.length <2) {
+    setFormErrors("name must be at least 2 characters");
+    return;
+  }
+
+  axios.post('https://reqres.in/api/orders', newOrder)
+  .then(res => {
+    const dbOrder = res.data;
+    setOrders([dbOrder, ...orders]);
+    setFormErrors("");
+    setFormValues(initialFormValues);
+    console.log(orders)
+  })
+  .catch(err => console.error(err))
+  }
+  
   return (
     <Switch>
     <Route path="/pizza">
       <Pizzaform
        values={formValues}
        update={updateForm}
-      //  submit={submitForm}
+      //  disabled={disabled}
+       submit={submitForm}
+       errors = {formErrors}
        />
     </Route>
 

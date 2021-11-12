@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Pizzaform(props){
-  const { values, update, submit } = props
+  const { values, update, submit, errors} = props
 
 
   const onChange = evt => {
@@ -20,7 +20,7 @@ export default function Pizzaform(props){
    <div className='container'>
         <h1>Lambda Eats</h1>
         <div className= 'menu'>
-          <form id= 'pizza-form'> 
+          <form id= 'pizza-form' onSubmit={onSubmit}> 
           <img src= 'https://th.bing.com/th/id/OIP.djlnJoe23sxS415sQi--CQHaE8?w=238&h=180&c=7&r=0&o=5&pid=1.7'></img>
           <h2>Build your own pizza</h2>
           <div>
@@ -79,13 +79,12 @@ export default function Pizzaform(props){
         </label>
 
 
-      <h3>Special Instructions</h3>
-      <label>Name
+      <label>Special Instructions
           <input
           id= 'special-text'
             type="text"
-            name="name"
-            value={values.specialinstructions}
+            name="special"
+            value={values.special}
             onChange={onChange}
             maxLength="50"
           />
@@ -101,7 +100,16 @@ export default function Pizzaform(props){
             maxLength="30"
           />
         </label>
+
+        <div className='errors'>
+          <div>{errors.name}</div>
+        </div>
+        
   
+        <div className='submit'>
+          <button id= 'submitBtn' disabled={!values.name ||!values.size}>submit</button>
+        </div>
+        
           </form>
        </div>
       </div>
